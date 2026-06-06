@@ -12,8 +12,8 @@ c.country,
 round((base_price-(base_price*discount_applied)), 2) as sale_price,
 format(timestamp,'MMMM') as month,
 format(timestamp,'yyyy') as year
-from [funnanal].[dbo].[products] a 
-join [funnanal].[dbo].[transactions] b on a.product_id = b.product_id
-join [funnanal].[dbo].[customers] c on b.customer_id = c.customer_id)
+from [DatabaseName].[dbo].[products] a 
+join [DatabaseName].[dbo].[transactions] b on a.product_id = b.product_id
+join [DatabaseName].[dbo].[customers] c on b.customer_id = c.customer_id)
 
 select *, (sale_price*quantity - 2*refund_flag*sale_price*quantity) as discount_revenue from cte
